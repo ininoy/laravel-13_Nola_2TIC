@@ -1,0 +1,36 @@
+<?php
+use App\Http\Controllers\MatakuliahController;
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/pcr', function () {
+    return ('Selamat datang di website Kampus PCR');
+});
+
+Route::get('/mahasiswa', function () {
+    return ('Halo Mahasiswa');
+});
+
+Route::get('/nama/{param1}', function ($param1) {
+    return 'Nama Saya: ' . $param1;
+});
+
+Route::get('/nim/{param1?}', function ($param1 = '') {
+    return 'NIM Saya: ' . $param1;
+});
+
+Route::get('/mahasiswa', function () {
+    return 'Halo Mahasiswa';
+})->name('mahasiswa.show');
+
+Route::get('/about', function () {
+    return view('halaman-about');
+});
+
+Route::get('/matakuliah/show/{kode?}', [MatakuliahController::class, 'show']);
+
+// Route resource untuk kaedah CRUD yang lain
+Route::resource('matakuliah', MatakuliahController::class);
