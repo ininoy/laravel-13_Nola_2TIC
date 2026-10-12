@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\MatakuliahController;
+use App\Http\Controllers\QuestionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
@@ -38,3 +39,6 @@ Route::resource('matakuliah', MatakuliahController::class);
 
 //route untuk HomeController
 Route::get('/home', [HomeController::class, 'index']);
+
+Route::post('question/store', [QuestionController::class, 'store'])
+		->name('question.store');
