@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\MatakuliahController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -34,3 +35,6 @@ Route::get('/matakuliah/show/{kode?}', [MatakuliahController::class, 'show']);
 
 // Route resource untuk kaedah CRUD yang lain
 Route::resource('matakuliah', MatakuliahController::class);
+
+//route untuk HomeController
+Route::get('/home', [HomeController::class, 'index']);
